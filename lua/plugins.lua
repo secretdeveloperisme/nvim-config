@@ -151,7 +151,6 @@ return require("packer").startup(function(use)
         end,
     })
 
-
 	
     -- Auto pairs
     use({
@@ -178,7 +177,18 @@ return require("packer").startup(function(use)
             })
         end,
     })
-	
+  -- Comment  
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require("configs.comment")
+    end
+  })
+  
+  -- tab bar
+  use({
+     "romgrk/barbar.nvim" 
+  })	
 	-- Rust 
 	
 	use("simrat39/rust-tools.nvim")
