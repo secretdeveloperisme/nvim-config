@@ -53,13 +53,6 @@ return require("packer").startup(function(use)
         requires = { { "nvim-lua/plenary.nvim" } },
     })
 
-    -- LSP
-    use({
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("configs.lsp")
-        end,
-    })
 
     use("onsails/lspkind-nvim")
     use({
@@ -104,6 +97,14 @@ return require("packer").startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("configs.mason-lsp")
+        end,
+    })
+
+    -- LSP
+    use({
+        "neovim/nvim-lspconfig",
+        config = function()
+            require("configs.lsp")
         end,
     })
 
@@ -189,9 +190,14 @@ return require("packer").startup(function(use)
   use({
      "romgrk/barbar.nvim" 
   })	
-	-- Rust 
+	-- Rust tools
 	
-	use("simrat39/rust-tools.nvim")
+	use({
+    "simrat39/rust-tools.nvim",
+    config =function()
+      require("configs.rust_tools")
+    end,
+  })
 
 	--- Debugging
 	use("mfussenegger/nvim-dap")
