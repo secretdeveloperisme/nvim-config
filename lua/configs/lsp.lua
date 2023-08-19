@@ -38,7 +38,3 @@ nvim_lsp.tailwindcss.setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
-nvim_lsp.rust_analyzer.setup({
-	on_attach = on_attach,
-	capabilities = capabilities
-})
