@@ -190,8 +190,13 @@ return require("packer").startup(function(use)
   use({
      "romgrk/barbar.nvim" 
   })	
-	-- Rust tools
-	
+
+  -- Debugging
+  use({"mfussenegger/nvim-dap"})
+  use({"rcarriga/nvim-dap-ui"})
+  require("configs.dap")
+
+	-- Rust tools	
 	use({
     "simrat39/rust-tools.nvim",
     config =function()
@@ -199,8 +204,6 @@ return require("packer").startup(function(use)
     end,
   })
 
-	--- Debugging
-	use("mfussenegger/nvim-dap")
 	
 	
 end)

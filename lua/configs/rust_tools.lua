@@ -1,6 +1,11 @@
 local rt = require("rust-tools")
+local codelldb_path = "/home/hoanglinhplus/Programs/lldb/linux/adapter/codelldb"
+local liblldb_path = "/home/hoanglinhplus/Programs/lldb/linux/adapter/libcodelldb.so"
 
 rt.setup({
+  dap = {
+    adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+  },
   server = {
     on_attach = function(_, bufnr)
       -- Hover actions
