@@ -90,6 +90,21 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>')
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>')
+-- Git Actions
+local gitsigns = require("gitsigns")
+    map('n', '<leader>hs', gitsigns.stage_hunk)
+    map('n', '<leader>hr', gitsigns.reset_hunk)
+    map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('n', '<leader>hS', gitsigns.stage_buffer)
+    map('n', '<leader>hu', gitsigns.undo_stage_hunk)
+    map('n', '<leader>hR', gitsigns.reset_buffer)
+    map('n', '<leader>hp', gitsigns.preview_hunk)
+    map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end)
+    map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
+    map('n', '<leader>hd', gitsigns.diffthis)
+    map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+    map('n', '<leader>td', gitsigns.toggle_deleted)
 -- Sort automatically by...
 map('n', '<leader>bb', '<Cmd>BufferOrderByBufferNumber<CR>')
 map('n', '<leader>bd', '<Cmd>BufferOrderByDirectory<CR>')
@@ -134,3 +149,50 @@ map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 
 -- Move to the next diagnostic
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+-- Rust mapping
+--
+map('n', '<leader>rd', function ()
+  vim.cmd.RustLsp('debug')
+end)
+
+map('n', '<leader>rdd', function ()
+ vim.cmd.RustLsp('debuggables')
+end)
+
+map('n', '<leader>rr', function ()
+  vim.cmd.RustLsp('run')
+end)
+
+map('n', '<leader>rrr', function ()
+ vim.cmd.RustLsp('runnables')
+end)
+map('n', '<leader>rh', function ()
+ vim.cmd.RustLsp { 'hover', 'actions' }
+end)
+
+
+-- debugger
+map('n', '<F5>', ':DapContinue<cr>')
+map('n', '<F10>', ':DapStepOver<cr>')
+map('n', '<F12>', ':DapStepInto<cr>')
+map('n', '<S-F12>', ':DapStepOut<cr>')
+map('n', '<Leader>b', ':DapToggleBreakpoint<cr>')
+map('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+map('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+map('n', '<Leader>dr', function() require('dap').repl.open() end)
+map('n', '<Leader>dl', function() require('dap').run_last() end)
+map({'n', 'v'}, '<Leader>dh', function()
+  require('dap.ui.widgets').hover()
+end)
+map({'n', 'v'}, '<Leader>dp', function()
+  require('dap.ui.widgets').preview()
+end)
+map('n', '<Leader>df', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.frames)
+end)
+map('n', '<Leader>ds', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.scopes)
+end)
+

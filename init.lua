@@ -1,4 +1,5 @@
 require("settings")
+require("commands")
 require("plugins")
 require("maps")
 
@@ -6,7 +7,7 @@ require("maps")
 local themeStatus, kanagawa = pcall(require, "kanagawa")
 
 if themeStatus then
-    vim.cmd("colorscheme kanagawa")
+  vim.cmd("colorscheme kanagawa")
 else
-    return
+  return
 end
