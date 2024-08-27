@@ -13,18 +13,6 @@ ts.setup({
         enable_autocmd = false,
     },
     ensure_installed = {
-        "markdown",
-        "javascript",
-        "toml",
-        "c_sharp",
-        "json",
-        "yaml",
-        "c",
-        "cpp",
-        "rust",
-        "css",
-        "html",
-        "lua",
     },
     rainbow = {
         enable = true,
