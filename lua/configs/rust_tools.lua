@@ -1,25 +1,12 @@
-local bufnr = vim.api.nvim_get_current_buf()
+local mason_registry = require('mason-registry')
+local codelldb = mason_registry.get_package("codelldb")
+local extension_path = codelldb:get_install_path() .. "/extension/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+local cfg = require('rustaceanvim.config')
+
 vim.g.rustaceanvim = {
-  ---@type rustaceanvim.tools.Opts
-  tools = {
-    hover_actions = {
-      replace_builtin_hover = true
-    }
-  },
-  ---@type rustaceanvim.lsp.ClientOpts
-  server = {
-    on_attach = function(client, bufnr)
-      -- Set keybindings, etc. here.
-    end,
-    default_settings = {
-      -- rust-analyzer language server configuration
-      ['rust-analyzer'] = {
-      },
-    },
-    -- ...
-  },
-  ---@type rustaceanvim.dap.Opts
   dap = {
-    -- ...
+    adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
   },
 }

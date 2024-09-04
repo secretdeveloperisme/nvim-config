@@ -51,7 +51,15 @@ return require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
   })
-
+  -- Dashboard
+  use ({
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = function ()
+      require("configs.dashboard")
+    end,
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  })
 
   -- vscode-like pictograms to neovim built-in lsp
   use("onsails/lspkind-nvim")
@@ -198,25 +206,6 @@ return require("packer").startup(function(use)
   use({ "mfussenegger/nvim-dap" })
   use({ "rcarriga/nvim-dap-ui" })
   require("configs.dap")
-  use({
-    'lvimuser/lsp-inlayhints.nvim',
-    config = function()
-      vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = "LspAttach_inlayhints",
-        callback = function(args)
-          if not (args.data and args.data.client_id) then
-            return
-          end
-
-          local bufnr = args.buf
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          require("lsp-inlayhints").on_attach(client, bufnr)
-        end,
-      })
-      require("lsp-inlayhints").setup()
-    end
-  })
   -- rust tools	
   use({
     "mrcjkb/rustaceanvim",

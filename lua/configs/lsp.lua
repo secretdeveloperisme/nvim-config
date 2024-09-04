@@ -31,6 +31,9 @@ nvim_lsp.lua_ls.setup({
   capabilities = capabilities,
 })
 
+-- Enable inlay-hint neovim > 0.10
+
+vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 -- No need to setup rust lsp because it has been configured in rusttools
 --[[
 nvim_lsp.rust_analyzer.setup({
