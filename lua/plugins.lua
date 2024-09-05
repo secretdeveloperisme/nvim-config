@@ -200,6 +200,19 @@ return require("packer").startup(function(use)
   use({
     "romgrk/barbar.nvim"
   })
+  --Noice
+  use({ "MunifTanjim/nui.nvim" })
+  use({ "rcarriga/nvim-notify", })
+  use({
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("configs.noice")
+    end
+  })
 
   -- Debugging
   use({ "nvim-neotest/nvim-nio" })
