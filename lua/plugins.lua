@@ -52,10 +52,10 @@ return require("packer").startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" } },
   })
   -- Dashboard
-  use ({
+  use({
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
-    config = function ()
+    config = function()
       require("configs.dashboard")
     end,
     requires = { 'nvim-tree/nvim-web-devicons' }
@@ -67,7 +67,7 @@ return require("packer").startup(function(use)
   use({
     "L3MON4D3/LuaSnip",
     -- follow latest release.
-    tag = "v<CurrentMajor>.*",
+    tag = "*",
   })
 
   -- cmp: Autocomplete
@@ -87,7 +87,7 @@ return require("packer").startup(function(use)
 
   -- LSP diagnostics, code actions, and more via Lua.
   use({
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     config = function()
       require("configs.null-ls")
     end,
