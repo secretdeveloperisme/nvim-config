@@ -117,6 +117,10 @@ return require("packer").startup(function(use)
       require("configs.lsp")
     end,
   })
+  -- Code Actions preview
+  use({
+    "aznhe21/actions-preview.nvim",
+  })
 
   -- File manager
   use({
