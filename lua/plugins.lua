@@ -160,12 +160,11 @@ return require("packer").startup(function(use)
 
   -- Markdown Preview
   use({
-    "iamcco/markdown-preview.nvim",
-    run = function()
-      vim.fn["mkdp#util#install"]()
-    end,
+    "ellisonleao/glow.nvim",
+    config = function()
+      require("glow").setup()
+    end
   })
-
 
   -- Auto pairs
   use({
