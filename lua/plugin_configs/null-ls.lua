@@ -13,7 +13,6 @@ local cda = nls.builtins.code_actions
 nls.setup({
   sources = {
     -- Formatting
-    fmt.prettierd,
     fmt.prettier.with({
       filetypes = { "html", "json", "yaml", "markdown", "javascript" },
     }),

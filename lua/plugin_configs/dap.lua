@@ -59,6 +59,31 @@ local cpptool_configs = {
     end,
   },
 }
+-- Keys Mapping
+MAP('n', '<F5>', ':DapContinue<cr>')
+MAP('n', '<F10>', ':DapStepOver<cr>')
+MAP('n', '<F12>', ':DapStepInto<cr>')
+MAP('n', '<S-F12>', ':DapStepOut<cr>')
+MAP('n', '<Leader>b', ':DapToggleBreakpoint<cr>')
+MAP('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+MAP('n', '<Leader>lp',
+  function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+MAP('n', '<Leader>dr', function() require('dap').repl.open() end)
+MAP('n', '<Leader>dl', function() require('dap').run_last() end)
+MAP({ 'n', 'v' }, '<Leader>dh', function()
+  require('dap.ui.widgets').hover()
+end)
+MAP({ 'n', 'v' }, '<Leader>dp', function()
+  require('dap.ui.widgets').preview()
+end)
+MAP('n', '<Leader>df', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.frames)
+end)
+MAP('n', '<Leader>ds', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.scopes)
+end)
 dap.configurations.c = cpptool_configs
 dap.configurations.cpp = cpptool_configs
 dap.configurations.rust = cpptool_configs
