@@ -1,5 +1,5 @@
 -- Function to compile the current C++ file
-function getFileExtension(filename)
+local function getFileExtension(filename)
   return filename:match("^.+%.(.+)$")
 end
 
