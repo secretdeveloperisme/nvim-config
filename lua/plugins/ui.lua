@@ -164,7 +164,7 @@ return {
   },
   --Noice
   { "MunifTanjim/nui.nvim" },
-  { "rcarriga/nvim-notify" },
+  { "rcarriga/nvim-notify",   opts = { stages = 'static' } },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
