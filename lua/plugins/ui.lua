@@ -2,12 +2,10 @@ return {
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    run = function()
-      require("nvim-treesitter.install").update({ with_sync = true })
-    end,
+    build = ":TSUpdate",
     config = function()
       require("plugin_configs.treesitter")
-    end,
+    end
   },
   -- Theme kanagawa
   {
