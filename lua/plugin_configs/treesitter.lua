@@ -24,6 +24,7 @@ ts.setup({
     "html",
     "css",
     "javascript",
+    "bash"
   },
   rainbow = {
     enable = true,

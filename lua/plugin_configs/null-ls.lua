@@ -13,8 +13,12 @@ local cda = nls.builtins.code_actions
 nls.setup({
   sources = {
     -- Formatting
-    fmt.prettier.with({
-      filetypes = { "html", "json", "yaml", "markdown", "javascript" },
+    cda.gitsigns.with({
+      config = {
+        filter_actions = function(title)
+          return title:lower():match("blame") == nil -- filter out blame actions
+        end,
+      },
     }),
 
   },

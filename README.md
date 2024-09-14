@@ -41,3 +41,21 @@ Open neovim and execute command `:PackerUpdate`
 - Open mason by executing command `:Mason`
 - Then find the corresponding LSP languages that you want to install as clangd(C/C++), rust-analyzer(rust)...
 - If you would like to install debugger adapter protocol (DAP) servers, just navigate to the DAP tab and install the dap for appropriate languages.
+## Extra configurations
+### Clipboard 
+To copy and paste in neovim, we need to configured an clipboard provider. On ubuntu `xclip` is one of the most popular clipboard providers:
+```bash
+sudo apt install xlip
+```
+### External tools
+#### ripgrep 
+ripgrep recursively searches directories for a regex pattern while respecting your gitignore 
+```bash
+sudo apt-get install ripgrep
+```
+### fd
+A simple, fast and user-friendly alternative to 'find' 
+```bash
+sudo apt install fd-find
+```
+
