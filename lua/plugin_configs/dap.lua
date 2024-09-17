@@ -14,6 +14,7 @@ dap.adapters.gdb = {
   args = { "-i", "dap" }
 }
 
+---@diagnostic disable-next-line: unused-local
 local gdb_config = {
   {
     name = "GDB Launch",
@@ -33,10 +34,9 @@ local cpptool_configs = {
     request = "launch",
     program = function()
       local program_path = vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-
       if program_path == vim.fn.getcwd() .. "/" then
         local current_file = vim.fn.expand('%')
-        local fileBasenameNoExtension = current_file:match("^(.+)%..+$")
+        local fileBasenameNoExtension = current_file:match("([^/\\]+)%.[^/\\]*$")
         program_path = program_path .. fileBasenameNoExtension;
       end
 

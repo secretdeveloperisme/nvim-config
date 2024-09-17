@@ -8,7 +8,6 @@ function CompileDebug()
   local current_file = vim.fn.expand('%')
   local ext = getFileExtension(current_file)
   local output_file = string.gsub(current_file, '%.' .. ext .. '$', '')
-  print("ext: " .. ext)
   if ext then
     if ext == "c" then
       command = 'gcc -g -o ' .. output_file .. ' ' .. current_file
