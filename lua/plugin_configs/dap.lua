@@ -28,7 +28,7 @@ local gdb_config = {
 }
 local cpptool_configs = {
   {
-    name = "Launch file cpptools",
+    name = "Launch file cpptools debugger",
     type = "cppdbg",
     request = "launch",
     program = function()

@@ -59,27 +59,8 @@ return {
     "mrcjkb/rustaceanvim",
     lazy = false,
     config = function()
-      require("plugin_configs.rustacean")
       -- Rust mapping
-      MAP('n', '<leader>rd', function()
-        vim.cmd.RustLsp('debug')
-      end, "Rust run debug")
-
-      MAP('n', '<leader>rdd', function()
-        vim.cmd.RustLsp('debuggables')
-      end, "Rust debuggables")
-
-      MAP('n', '<leader>rr', function()
-        vim.cmd.RustLsp('run')
-      end, "Rust run")
-
-      MAP('n', '<leader>rrr', function()
-        vim.cmd.RustLsp('runnables')
-      end, "Rust runnables")
-
-      MAP('n', '<leader>rh', function()
-        vim.cmd.RustLsp { 'hover', 'actions' }
-      end)
+      require("plugin_configs.rustacean")
     end,
   }
 }
