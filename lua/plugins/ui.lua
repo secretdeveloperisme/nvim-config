@@ -64,6 +64,18 @@ return {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = false,
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_by_name = {
+            ".git"
+          }
+        },
+      },
+    },
     keys = {
       { "<leader>e", "<CMD>Neotree toggle<CR>", desc = "Neo tree toogle" },
       { "<leader>o", "<CMD>Neotree focus<CR>",  desc = "NeoTree focus" }
