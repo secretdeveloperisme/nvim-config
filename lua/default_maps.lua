@@ -32,3 +32,8 @@ map("n", "<C-Left>", "<C-w><")
 map("n", "<C-Right>", "<C-w>>")
 map("n", "<C-Up>", "<C-w>+")
 map("n", "<C-Down>", "<C-w>-")
+-- Change directory to current working file
+map("n", "<leader>cd", 
+function() 
+    vim.cmd('cd ' .. vim.fn.expand('%:p:h')) 
+end, "Change directory to current buffer path")
