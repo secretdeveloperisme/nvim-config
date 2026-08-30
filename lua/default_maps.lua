@@ -37,3 +37,6 @@ map("n", "<leader>cd",
 function() 
     vim.cmd('cd ' .. vim.fn.expand('%:p:h')) 
 end, "Change directory to current buffer path")
+
+-- Clear search result
+map("n", "<Esc>", "<Esc>:noh<CR>")
